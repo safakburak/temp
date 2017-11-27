@@ -1,7 +1,0 @@
-package com.ekinoksyazilim.etkk.prototype.application;
-
-import javax.swing.JFrame;
-
-public class MainWindow extends JFrame {
-
-}

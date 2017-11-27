@@ -1,9 +1,0 @@
-package com.ekinoksyazilim.etkk.prototype;
-
-public class DummyWork {
-
-	public static void doDummy() {
-		
-		Thread.sleep((long) (Math.random() * 10000));
-	}
-}

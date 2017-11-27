@@ -1,6 +1,0 @@
-package com.ekinoksyazilim.etkk.prototype.comm;
-
-public interface IEndPoint {
-
-	void send();
-}

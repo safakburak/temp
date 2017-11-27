@@ -1,5 +1,0 @@
-package com.ekinoksyazilim.etkk.prototype.middle;
-
-public interface IMiddle {
-
-}

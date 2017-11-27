@@ -1,5 +1,0 @@
-package com.ekinoksyazilim.etkk.prototype.top;
-
-public class Top implements ITop{
-
-}

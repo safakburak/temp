@@ -1,1 +1,0 @@
-java -ea -agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=n -Djava.library.path=natives/macosx -Declipse.ignoreApp=true -Dosgi.noShutdown=true -Dfile.encoding=UTF-8 -classpath org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar org.eclipse.equinox.launcher.Main -configuration file:./ -os macosx -ws motif -arch x86_64 -nl en_US -consoleLog -console

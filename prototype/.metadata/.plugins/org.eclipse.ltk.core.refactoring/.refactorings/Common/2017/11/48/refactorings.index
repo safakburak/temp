@@ -1,7 +1,0 @@
-1511766001880	Rename field 'to'
-1511766006888	Rename local variable 'to'
-1511767043541	Delete element
-1511767401342	Rename type 'Envelop'
-1511767482088	Rename method 'getFromInbox'
-1511767485095	Rename method 'getFromOutbox'
-1511767883702	Rename method 'pushToInbox'

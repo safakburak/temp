@@ -1,8 +1,0 @@
-package com.ekinoksyazilim.etkk.prototype.comm;
-
-public interface IEndPointListener <T> {
-
-	void messageReceived(T message, IEndPoint );
-	
-	void messageSent(T message);
-}

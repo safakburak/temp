@@ -1,5 +1,0 @@
-package com.ekinoksyazilim.etkk.prototype.left;
-
-public class BottomLeft implements IBottomLeft {
-
-}

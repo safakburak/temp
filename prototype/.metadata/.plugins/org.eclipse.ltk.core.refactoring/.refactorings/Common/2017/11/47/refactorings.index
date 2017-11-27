@@ -1,9 +1,0 @@
-1511356508344	Move compilation unit
-1511356518093	Move compilation unit
-1511521260087	Delete element
-1511521263545	Delete element
-1511527776056	Rename local variable 'field'
-1511527789681	Rename local variable 'fieldBundleName'
-1511528528473	Rename local variable 'fieldResourceBundle'
-1511528536541	Rename local variable 'fieldBundleName'
-1511530247207	Rename type 'ConfigurationService'
