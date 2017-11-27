@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="project" default="default">
+
+	<property name="version" value="0.0.1"/>
+	
+	<property name="name" value="etkk_${version}"/>
+	
+	<target name="default"></target>
+	
+	<target name="export">
+
+    	<replace file="../Common/src/com/ekinoksyazilim/etkk/prototype/configuration/ConfigurationService.java" 
+    		token="X.X.X" value="${version}"/>
+		
+		<pde.exportPlugins destination="." 
+			exportSource="false" exportType="directory" 
+			plugins="Application,Bottom,Common,MiddleAndTop" useJARFormat="true"/>
+	</target>
+	
+    <target name="pack">
+    	
+    	<delete dir="${name}"/>
+    	
+    	<delete dir="${name}.zip"/>
+    	
+    	<mkdir dir="${name}"/>
+    	
+    	<copy toDir="${name}/plugins">
+    		<fileset dir="plugins" includes="Application*"/>
+    		<fileset dir="plugins" includes="Bottom*"/>
+    		<fileset dir="plugins" includes="Common*"/>
+    		<fileset dir="plugins" includes="MiddleAndTop*"/>
+    	</copy>
+
+    	<copy toDir="${name}/MATADOR/plugins/languageFiles">
+    		<fileset dir="../Application/src" includes="**/*messages*.properties"/>
+    		<fileset dir="../Bottom/src" includes="**/*messages*.properties"/>
+    		<fileset dir="../Common/src" includes="**/*messages*.properties"/>
+    		<fileset dir="../MiddleAndTop/src" includes="**/*messages*.properties"/>
+    	</copy>
+    	
+    	<zip destfile="${name}.zip">
+    		<zipfileset filemode="755" dir="${name}"/>
+    	</zip>
+    	
+    	<delete dir="${name}"/>
+    	<delete dir="plugins"/>
+    	
+    	<replace file="../Common/src/com/ekinoksyazilim/etkk/prototype/configuration/ConfigurationService.java" 
+    		token="${version}" value="X.X.X"/>
+    	
+    </target>
+</project>

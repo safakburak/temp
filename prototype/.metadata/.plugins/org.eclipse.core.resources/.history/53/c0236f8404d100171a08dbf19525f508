@@ -1,0 +1,8 @@
+package com.ekinoksyazilim.etkk.prototype.resource;
+
+public class ResourceService implements IResourceService {
+
+	public void activate() {
+		
+	}
+}

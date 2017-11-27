@@ -1,0 +1,6 @@
+package com.ekinoksyazilim.etkk.prototype;
+
+public interface IServiceCallback <T> {
+
+	void completed(T data);
+}

@@ -1,0 +1,5 @@
+package com.ekinoksyazilim.etkk.prototype.right;
+
+public interface IBottomRight {
+
+}

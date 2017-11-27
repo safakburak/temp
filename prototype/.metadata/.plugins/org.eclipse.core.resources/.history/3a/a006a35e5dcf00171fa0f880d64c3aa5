@@ -1,0 +1,5 @@
+package com.ekinoksyazilim.etkk.prototype.left;
+
+public interface IBottomLeft {
+
+}

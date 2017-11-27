@@ -1,0 +1,10 @@
+# List of external plug-in models previously loaded. Timestamp: 1511769869942
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.apache.felix.gogo.command-0.16.0.jar
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.eclipse.osgi_3.10.101.v20150820-1432.jar
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.eclipse.equinox.util_1.0.500.v20130404-1337.jar
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.eclipse.equinox.ds_1.4.101.v20130813-1853.jar
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.apache.felix.gogo.runtime-0.16.2.jar
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.eclipse.equinox.console_1.1.100.v20141023-1406.jar
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.apache.felix.configadmin-1.8.8.jar
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.apache.felix.gogo.shell-0.12.0.jar
+file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/workspace/prototype/Deployment/osgi/org.eclipse.osgi.services_3.5.0.v20150519-2006.jar

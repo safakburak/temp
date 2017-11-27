@@ -1,0 +1,21 @@
+package com.ekinoksyazilim.etkk.prototype.configuration;
+
+import java.awt.Color;
+
+public class Configuration extends AbstractConfiguration {
+
+	@config("sembol.iz.sabitdonerkanat")
+    public String STRING_EXAMPLE = "images/tracks/donerkanathover.png";
+	
+	@config("sembol.iz.sabitdonerkanat")
+    public Integer INTEGER_EXAMPLE = "images/tracks/donerkanathover.png";
+	
+	@config("sembol.iz.sabitdonerkanat")
+    public Color COLOR_EXAMPLE = "images/tracks/donerkanathover.png";
+	
+	@Override
+	protected String getPath() {
+		
+		return "config.xml";
+	}
+}

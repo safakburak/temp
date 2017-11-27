@@ -1,0 +1,13 @@
+!SESSION 2017-11-24 14:54:02.584 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  --launcher.secondThread
+Command-line arguments:  -dev file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/Prototype/.metadata/.plugins/org.eclipse.pde.core/prototype/dev.properties -os macosx -arch x86_64 -consoleLog -console --launcher.secondThread
+
+!ENTRY org.eclipse.equinox.ds 2 0 2017-11-24 14:54:32.981
+!MESSAGE [SCR - WorkThread] Timeout occurred! Thread was blocked on processing [QueuedJob] WorkPerformer: org.eclipse.equinox.internal.ds.SCRManager@3ed8edb8; actionType 1
+
+!ENTRY org.eclipse.equinox.ds 2 0 2017-11-24 14:54:33.042
+!MESSAGE [SCR] Enabling components of bundle Application did not complete in 30000 ms 

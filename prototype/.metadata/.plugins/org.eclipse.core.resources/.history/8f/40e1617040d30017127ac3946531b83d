@@ -1,0 +1,8 @@
+package com.ekinoksyazilim.etkk.prototype.comm;
+
+public class Envelop <T> {
+
+	public Envelop(T content) {
+	}
+	
+}

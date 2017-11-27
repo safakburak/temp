@@ -1,0 +1,1 @@
+java.exe -ea -Declipse.ignoreApp=true -Dosgi.noShutdown=true -Dfile.encoding=UTF-8 -classpath org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar org.eclipse.equinox.launcher.Main  -configuration file:./ -os win32 -ws win32 -arch x86_64 -nl en_US -consoleLog -console

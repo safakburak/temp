@@ -1,0 +1,9 @@
+package com.ekinoksyazilim.etkk.prototype.comm;
+
+public class Envelop {
+
+	public Envelop() {
+		// TODO Auto-generated constructor stub
+	}
+	
+}

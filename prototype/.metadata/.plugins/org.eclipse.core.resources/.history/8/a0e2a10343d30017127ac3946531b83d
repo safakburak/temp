@@ -1,0 +1,12 @@
+package com.ekinoksyazilim.etkk.prototype.comm;
+
+import java.net.InetSocketAddress;
+
+public interface IEndPoint <T> {
+
+	void send(T message, InetSocketAddress to);
+	
+	void addListener(IEndPointListener<T> listener);
+	
+	void removeListener(IEndPointListener<T> listener);
+}

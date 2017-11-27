@@ -1,0 +1,16 @@
+package com.ekinoksyazilim.etkk.prototype.top;
+
+import java.util.concurrent.CompletableFuture;
+
+import com.ekinoksyazilim.etkk.prototype.middle.IMiddle;
+
+public class Top implements ITop {
+
+	private IMiddle middle;
+	
+	@Override
+	public CompletableFuture<Integer> sum(Integer[] inputs) {
+		
+		return null;
+	}
+}

@@ -1,0 +1,26 @@
+package com.ekinoksyazilim.etkk.prototype.configuration;
+
+import java.awt.Color;
+
+public class Configuration extends AbstractConfiguration {
+
+	@config("sembol.iz.sabitdonerkanat")
+    public String STRING_EXAMPLE = "some string";
+	
+	@config("sembol.iz.sabitdonerkanat")
+    public Integer INTEGER_EXAMPLE = 5;
+	
+	@config("sembol.iz.sabitdonerkanat")
+    public Color COLOR_EXAMPLE = Color.BLACK;
+	
+	public Configuration() {
+		
+		load();
+	}
+	
+	@Override
+	protected String getPath() {
+		
+		return "config.xml";
+	}
+}

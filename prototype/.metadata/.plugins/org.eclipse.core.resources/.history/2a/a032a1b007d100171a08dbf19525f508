@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Application
+Bundle-SymbolicName: Application
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/application.xml
+Import-Package: com.ekinoksyazilim.etkk.prototype.dummy,
+ com.ekinoksyazilim.etkk.prototype.service,
+ com.ekinoksyazilim.etkk.prototype.top
+Bundle-ActivationPolicy: lazy
+Bundle-Classpath: /resources,.

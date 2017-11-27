@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="Application">
+   <implementation class="com.ekinoksyazilim.etkk.prototype.application.Application"/>
+   <reference bind="setTop" cardinality="1..1" interface="com.ekinoksyazilim.etkk.prototype.top.ITop" name="ITop" policy="static"/>
+   <reference bind="setConfiguration" cardinality="1..1" interface="com.ekinoksyazilim.etkk.prototype.configuration.Configuration" name="Configuration" policy="static"/>
+</scr:component>

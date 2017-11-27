@@ -1,0 +1,10 @@
+package com.ekinoksyazilim.etkk.prototype.resource;
+
+import org.osgi.framework.BundleContext;
+
+public class ResourceService implements IResourceService {
+
+	public void activate(BundleContext bc) {
+		
+	}
+}

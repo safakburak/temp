@@ -1,0 +1,39 @@
+!SESSION 2017-11-22 12:02:01.371 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Command-line arguments:  -dev file:/Users/safakburakcevikbas/Desktop/Ekinoks/ETKK/Prototype/.metadata/.plugins/org.eclipse.pde.core/prototype/dev.properties -os macosx -ws cocoa -arch x86_64 -consoleLog -console
+
+!ENTRY MiddleAndTop 4 0 2017-11-22 12:02:01.764
+!MESSAGE [SCR] Method was not found: setBottomRight(...)
+	Details:
+	Problematic reference = Reference[name = IBottomRight, interface = com.ekinoksyazilim.etkk.prototype.right.IBottomRight, policy = static, cardinality = 1..1, target = null, bind = setBottomRight, unbind = null]
+	of service component = Middle
+	component implementation class = com.ekinoksyazilim.etkk.prototype.middle.Middle
+	located in bundle with symbolic name = MiddleAndTop
+	bundle location = initial@reference:file:../../MiddleAndTop/
+
+!ENTRY MiddleAndTop 4 0 2017-11-22 12:02:01.765
+!MESSAGE [SCR] Method was not found: setBottomRight(...)
+	Details:
+	Problematic reference = Reference[name = IBottomRight, interface = com.ekinoksyazilim.etkk.prototype.right.IBottomRight, policy = static, cardinality = 1..1, target = null, bind = setBottomRight, unbind = null]
+	of service component = Middle
+	component implementation class = com.ekinoksyazilim.etkk.prototype.middle.Middle
+	located in bundle with symbolic name = MiddleAndTop
+	bundle location = initial@reference:file:../../MiddleAndTop/
+
+!ENTRY MiddleAndTop 2 0 2017-11-22 12:02:01.770
+!MESSAGE [SCR] ComponentReference.bind(): bind method 'setBottomRight' is not found or it is not accessible!
+	Details:
+	Problematic reference = Reference[name = IBottomRight, interface = com.ekinoksyazilim.etkk.prototype.right.IBottomRight, policy = static, cardinality = 1..1, target = null, bind = setBottomRight, unbind = null]
+	of service component = Middle
+	component implementation class = com.ekinoksyazilim.etkk.prototype.middle.Middle
+	located in bundle with symbolic name = MiddleAndTop
+	bundle location = initial@reference:file:../../MiddleAndTop/
+
+!ENTRY org.eclipse.equinox.ds 4 0 2017-11-22 12:02:01.771
+!MESSAGE Could not bind a reference of component Middle. The reference is: Reference[name = IBottomRight, interface = com.ekinoksyazilim.etkk.prototype.right.IBottomRight, policy = static, cardinality = 1..1, target = null, bind = setBottomRight, unbind = null]
+
+!ENTRY org.eclipse.equinox.ds 4 0 2017-11-22 12:02:01.771
+!MESSAGE Could not bind a reference of component Middle. The reference is: Reference[name = IBottomRight, interface = com.ekinoksyazilim.etkk.prototype.right.IBottomRight, policy = static, cardinality = 1..1, target = null, bind = setBottomRight, unbind = null]

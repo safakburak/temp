@@ -1,0 +1,14 @@
+package com.ekinoksyazilim.etkk.prototype.left;
+
+import java.util.concurrent.CompletableFuture;
+
+public class BottomLeft implements IBottomLeft {
+
+	@Override
+	public CompletableFuture<Integer> sum(Integer[] inputs) {
+		
+		CompletableFuture.supplyAsync(() -> {});
+		
+		return null;
+	}
+}

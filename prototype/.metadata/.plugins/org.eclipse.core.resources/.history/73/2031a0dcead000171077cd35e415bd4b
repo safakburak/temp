@@ -1,0 +1,63 @@
+# Eclipse Equinox Launcher Configuration File
+# reference @ http://bit.ly/1NPvZv1
+
+# The comma-separated list of bundles which are automatically installed and optionally started once the system is up and running. Each entry is of the form:
+#     <URL | simple bundle location>[@ [<start-level>] [":start"]]
+# The start-level indicates the OSGi start level at which the bundle should run. If the start-level (>0 integer) is omitted then the framework will use the
+# default start level for the bundle. If the "start" tag is added then the bundle will be marked as started after being installed. Simple bundle locations 
+# are interepreted as relative to the framework's parent directory. If the location is not a fully qualified path or URL then a search is done to find the 
+# highest version available. Note that the reference: protocol can only be used to refer to content specified by a file: 
+#  URL (e.g. reference:file:/path/to/mybundle_1.0.0.jar). 
+# If the bundle is a directory bundle then using a file: URL without the use of reference: is not supported 
+#  (e.g. file:/path/to/myDirectoryBundle_1.0.0/ must use 
+# reference:file:/path/to/myDirectoryBundle_1.0.0/)
+# BE CAREFUL NOT TO PUT ANY CHARACTERS AFTER '\' AT THE END OF THE LINES
+osgi.bundles = \
+	../aselsan/library_1.3.3.020412_152415.jar@start,\
+	../aselsan/library_log_client_1.7.2.251209_145836.jar@start,\
+	../aselsan/library_ui_1.3.3.020412_152432.jar@start,\
+	../aselsan/reform.BildirimYoneticisiInterface_2.1.1.060313_145057.jar@start,\
+	../aselsan/reform.BildirimYoneticisi_2.1.1.060313_145057.jar@4\:start,\
+	../aselsan/reform.GrafikKutuphanesiInterface_1.1.25.030214_041648.jar@start,\
+	../aselsan/reform.GrafikKutuphanesi_1.1.25.030214_041648.jar@start,\
+	../aselsan/reform.HaberlesmeUygulama_2.0.9.040315_085600.jar@start,\
+	../aselsan/reform.LogKAInterface_1.0.2.130313_120000.jar@start,\
+	../aselsan/reform.LogKA_1.0.2.130313_120000.jar@4\:start,\
+	../aselsan/reform.LookAndFeel_1.2.3.080911_140628.jar@1\:start,\
+	../aselsan/reform.OrtakYapilandirma_1.4.1.080911_103650.jar@1\:start,\
+	../aselsan/remote-1.0.0.RC4.jar@start,\
+	../bundles/guava_18.0.jar@start,\
+	../bundles/pax-logging-api-1.8.5-SNAPSHOT.jar@4\:start,\
+	../bundles/pax-logging-log4j2-1.8.5-SNAPSHOT.jar@4\:start,\
+	../bundles/unit-api-0.9-SNAPSHOT.jar@start,\
+	../bundles/unit-ri-0.9-SNAPSHOT.jar@start,\
+	../bundles/uom-lib-common-0.9-SNAPSHOT.jar@start,\
+	../osgi/org.apache.felix.configadmin-1.8.8.jar@2\:start,\
+	../osgi/org.apache.felix.gogo.command-0.16.0.jar@start,\
+	../osgi/org.apache.felix.gogo.runtime-0.16.2.jar@start,\
+	../osgi/org.apache.felix.gogo.shell-0.12.0.jar@start,\
+	../osgi/org.eclipse.equinox.console_1.1.100.v20141023-1406.jar@start,\
+	../osgi/org.eclipse.equinox.ds_1.4.101.v20130813-1853.jar@1\:start,\
+	../osgi/org.eclipse.equinox.util_1.0.500.v20130404-1337.jar@start,\
+	../osgi/org.eclipse.osgi.services_3.5.0.v20150519-2006.jar@start,\
+	../plugins/KSSArayuz@start,\
+	../plugins/MatadorApplication@start,\
+	../plugins/MatadorAyr@start,\
+	../plugins/MatadorCfr@start,\
+	../plugins/MatadorCommons@4\:start,\
+	../plugins/MatadorCommunication@start,\
+	../plugins/MatadorIff@start,\
+	../plugins/MatadorPlt@start,\
+	../plugins/MatadorRapor@start,\
+	../plugins/MatadorScope@start,\
+	../plugins/jogl-plugin@start,\
+	../plugins/radar.ASkop@start,\
+	../plugins/radar.BSkop@start,\
+	../plugins/radar.CSkop@start,\
+	../plugins/radar.PPISkop@start
+osgi.bundles.defaultStartLevel=5
+# the install location of the platform. This setting indicates the location of the basic Eclipse plug-ins and is useful if the Eclipse install is disjoint.
+osgi.install.area=file\:./
+# the URL location of the OSGi framework. Useful if the Eclipse install is disjoint. 
+osgi.framework=file\:./osgi/org.eclipse.osgi_3.10.101.v20150820-1432.jar
+osgi.configuration.cascaded=false

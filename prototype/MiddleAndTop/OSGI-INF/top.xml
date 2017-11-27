@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="Top">
+   <implementation class="com.ekinoksyazilim.etkk.prototype.top.Top"/>
+   <reference bind="setMiddle" cardinality="1..1" interface="com.ekinoksyazilim.etkk.prototype.middle.IMiddle" name="IMiddle" policy="static"/>
+   <service>
+      <provide interface="com.ekinoksyazilim.etkk.prototype.top.ITop"/>
+   </service>
+</scr:component>

@@ -1,0 +1,16 @@
+package com.ekinoksyazilim.etkk.prototype;
+
+public class DummyWork {
+
+	public static void doDummy() {
+		
+		try {
+			
+			Thread.sleep((long) (Math.random() * 10000));
+			
+		} catch (InterruptedException e) {
+			
+			// nothing to do
+		}
+	}
+}

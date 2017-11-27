@@ -1,0 +1,18 @@
+package com.ekinoksyazilim.etkk.prototype.left;
+
+import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
+
+public class BottomLeft implements IBottomLeft {
+
+	@Override
+	public CompletableFuture<Integer> sum(Integer[] inputs) {
+
+		System.out.println("BottomLeft called from thread: " + Thread.currentThread().getId());
+		
+		return CompletableFuture.supplyAsync(() -> {
+			
+			return Arrays.asList(inputs).stream().mapToInt(i -> i).sum();
+		});
+	}
+}

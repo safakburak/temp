@@ -1,0 +1,14 @@
+1511340771564	Convert local variable 'btnGenerate' to field
+1511340777552	Convert local variable 'btnCalculate1' to field
+1511340781176	Convert local variable 'btnCalculate2' to field
+1511340788581	Convert local variable 'textArea' to field
+1511512315797	Rename resource 'messages.properties'
+1511512529444	Rename resource '_messages.properties'
+1511521491933	Rename resource 'messages.properties'
+1511522456753	Rename resource '_messages.properties'
+1511523355438	Rename resource 'messages.properties'
+1511523486811	Rename resource '_messages.properties'
+1511524137381	Rename resource 'messages.properties'
+1511524954231	Rename resource '_messages.properties'
+1511525204665	Rename resource 'messages.properties'
+1511527301311	Rename resource '_messages.properties'

@@ -1,0 +1,8 @@
+package com.ekinoksyazilim.etkk.prototype.tools;
+
+public class SilentSleeper {
+
+	public void sleep(long ms) {
+		
+	}
+}

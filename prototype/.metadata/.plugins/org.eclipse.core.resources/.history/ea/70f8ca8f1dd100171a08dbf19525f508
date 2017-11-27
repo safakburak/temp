@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Matadar Properties File</comment>
+<entry key="sembol.iz.sabitdonerkanat">some string</entry>
+<entry key="sembol.iz.sabitdonerkanat">5</entry>
+<entry key="sembol.iz.sabitdonerkanat">000000</entry>
+</properties>

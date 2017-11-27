@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MiddleAndTop
+Bundle-SymbolicName: MiddleAndTop
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.ekinoksyazilim.etkk.prototype.left,
+ com.ekinoksyazilim.etkk.prototype.right,
+ com.ekinoksyazilim.etkk.prototype.service
+Service-Component: OSGI-INF/middle.xml,
+ OSGI-INF/top.xml
+Export-Package: com.ekinoksyazilim.etkk.prototype.top

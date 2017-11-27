@@ -1,0 +1,8 @@
+package com.ekinoksyazilim.etkk.prototype;
+
+public class DummyWork {
+
+	public static void doDummy() {
+		
+	}
+}

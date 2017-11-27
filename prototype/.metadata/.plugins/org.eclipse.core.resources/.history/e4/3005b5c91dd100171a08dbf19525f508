@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+<entry key="example.color">000000</entry>
+<entry key="example.integer">5</entry>
+<entry key="example.string">some string</entry>
+</properties>

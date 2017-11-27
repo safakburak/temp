@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Bottom
+Bundle-SymbolicName: Bottom
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/bottomleft.xml,
+ OSGI-INF/bottomright.xml
+Export-Package: com.ekinoksyazilim.etkk.prototype.left,
+ com.ekinoksyazilim.etkk.prototype.right

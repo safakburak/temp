@@ -1,0 +1,38 @@
+package com.ekinoksyazilim.etkk.prototype.middle;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
+
+import com.ekinoksyazilim.etkk.prototype.left.IBottomLeft;
+
+public class Middle implements IMiddle {
+
+	private IBottomLeft bottomLeft;
+	
+	private IBottomLeft bottomRight;
+	
+	@Override
+	public CompletableFuture<Integer> sum(Integer[] inputs) {
+
+		return CompletableFuture.supplyAsync(() -> {
+
+			Integer[] part1 = Arrays.copyOfRange(inputs, 0, inputs.length / 2);
+			Integer[] part2 = Arrays.copyOfRange(inputs, inputs.length / 2, inputs.length);
+			
+			
+			
+			return 0;
+		});
+	}
+	
+	public void setBottomLeft(IBottomLeft bottomLeft) {
+		
+		this.bottomLeft = bottomLeft;
+	}
+	
+	public void setBottomRight(IBottomLeft bottomRight) {
+		
+		this.bottomRight = bottomRight;
+	}
+}

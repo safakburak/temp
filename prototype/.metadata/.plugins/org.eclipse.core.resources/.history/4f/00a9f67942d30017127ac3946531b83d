@@ -1,0 +1,28 @@
+package com.ekinoksyazilim.etkk.prototype.tools;
+
+public class SilentSleeper {
+
+public static void sleep(long ms) {
+		
+		try {
+			
+			Thread.sleep(ms);
+			
+		} catch (InterruptedException e) {
+			
+			// nothing to do
+		}
+	}
+	
+	public static void sleep(long ms) {
+		
+		try {
+			
+			Thread.sleep(ms);
+			
+		} catch (InterruptedException e) {
+			
+			// nothing to do
+		}
+	}
+}

@@ -1,0 +1,8 @@
+package com.ekinoksyazilim.etkk.prototype.comm;
+
+public interface IParser <T> {
+
+	byte[] encode(T message);
+	
+	Object decode(byte[] data);
+}

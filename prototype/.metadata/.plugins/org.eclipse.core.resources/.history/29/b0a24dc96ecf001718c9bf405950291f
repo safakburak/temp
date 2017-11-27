@@ -1,0 +1,16 @@
+package com.ekinoksyazilim.etkk.prototype.right;
+
+import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
+
+public class BottomRight implements IBottomRight{
+
+	@Override
+	public CompletableFuture<Integer> sum(Integer[] inputs) {
+		
+		return CompletableFuture.supplyAsync(() -> {
+			
+			return Arrays.asList(inputs).stream().mapToInt(i -> i).sum();
+		});
+	}
+}

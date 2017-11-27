@@ -1,0 +1,23 @@
+package com.ekinoksyazilim.etkk.prototype.comm;
+
+import java.net.InetSocketAddress;
+
+public class Envelop <T> {
+
+	private T message;
+	private InetSocketAddress to;
+	
+	public Envelop(T message, InetSocketAddress to) {
+	}
+	
+	
+	public T getMessage() {
+		
+		return message;
+	}
+	
+	public InetSocketAddress getTo() {
+		
+		return to;
+	}
+}

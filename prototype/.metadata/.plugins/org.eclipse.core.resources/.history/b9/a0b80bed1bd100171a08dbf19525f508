@@ -1,0 +1,11 @@
+package com.ekinoksyazilim.etkk.prototype.configuration;
+
+public class Configuration extends AbstractConfiguration {
+
+	@Override
+	protected String getPath() {
+		
+		return "config.xml";
+	}
+
+}
