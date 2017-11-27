@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.left.IBottomLeft"/>
-<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
-<fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
-<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.middle.IMiddle"/>
-<fullyQualifiedTypeName name="javax.tools.ToolProvider"/>
-<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.application.MainWindow"/>
 <fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.right.IBottomRight"/>
 <fullyQualifiedTypeName name="java.util.concurrent.CompletableFuture"/>
 <fullyQualifiedTypeName name="javax.swing.SwingUtilities"/>
@@ -49,15 +43,21 @@
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ConcurrentLinkedQueue"/>
 <fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.IEndPoint"/>
-<fullyQualifiedTypeName name="java.util.concurrent.ConcurrentSkipListSet"/>
 <fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.tools.SilentSleeper"/>
 <fullyQualifiedTypeName name="java.net.Socket"/>
-<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.IPackageExtractor"/>
-<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.IParser"/>
 <fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.Envelope"/>
 <fullyQualifiedTypeName name="java.net.SocketAddress"/>
 <fullyQualifiedTypeName name="javax.xml.ws.handler.soap.SOAPMessageContext"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ConcurrentSkipListSet"/>
+<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.ICommServerListener"/>
+<fullyQualifiedTypeName name="java.net.ServerSocket"/>
+<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.IParser"/>
+<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.IPackageExtractor"/>
+<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.EndPoint"/>
+<fullyQualifiedTypeName name="com.ekinoksyazilim.etkk.prototype.comm.Worker"/>
 <fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
+<fullyQualifiedTypeName name="java.net.DatagramSocket"/>
 </qualifiedTypeNameHistroy>
