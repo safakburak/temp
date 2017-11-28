@@ -1,13 +1,17 @@
 package com.ekinoksyazilim.etkk.prototype.comm;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
 public abstract class CommServer <T> {
 
-	private ConcurrentSkipListSet<ICommServerListener> listeners = new ConcurrentSkipListSet<>();
+	private ConcurrentSkipListSet<IClientListener<T>> listeners = new ConcurrentSkipListSet<>();
+	
+	private ConcurrentHashMap<RemoteEndPointKey, EndPoint<T>> endPointMap = new ConcurrentHashMap<>();
 	
 	private Worker[] workers;
 	
@@ -37,12 +41,12 @@ public abstract class CommServer <T> {
 		}
 	}
 	
-	public void addListener(ICommServerListener listener) {
+	public void addListener(IClientListener<T> listener) {
 		
 		listeners.add(listener);
 	}
 	
-	public void removeListener(ICommServerListener listener) {
+	public void removeListener(IClientListener<T> listener) {
 		
 		listeners.remove(listener);
 	}
@@ -81,11 +85,28 @@ public abstract class CommServer <T> {
 			try {
 				
 				Socket socket = serverSocket.accept();
-				EndPoint<T> endPoint = new EndPoint<>(socket, getExtractor(), getParser());
 				
-				workers[nextWorker].assign(endPoint);
+				InetSocketAddress from = (InetSocketAddress) socket.getRemoteSocketAddress();
+				RemoteEndPointKey key = new RemoteEndPointKey(from.getHostName(), from.getPort());
+
+				EndPoint<T> endPoint;
 				
-				nextWorker = (nextWorker + 1) % workers.length;
+				if(endPointMap.contains(key)) {
+
+					endPoint = endPointMap.get(key);
+					endPoint.setSocket(socket);
+					
+				} else {
+					
+					endPoint = new EndPoint<>(socket, getExtractor(), getParser());
+					
+					endPointMap.put(key, endPoint);
+					
+					workers[nextWorker].assign(endPoint);
+					nextWorker = (nextWorker + 1) % workers.length;
+					
+					fireEndPointCreated(endPoint);
+				}
 				
 			} catch (IOException e) {
 				
@@ -94,5 +115,13 @@ public abstract class CommServer <T> {
 		}
 
 		isClosing = false;
+	}
+	
+	private void fireEndPointCreated(EndPoint<T> endPoint) {
+		
+		for(IClientListener<T> listener : listeners) {
+			
+			listener.endPointCreated(endPoint);
+		}
 	}
 }

@@ -21,11 +21,17 @@ public class EndPoint <T> {
 	
 	private IParser<T> parser;
 	
-	public EndPoint(Socket socket, IPackageExtractor extractor, IParser<T> parser) {
+	public EndPoint(IPackageExtractor extractor, IParser<T> parser) {
 		
-		this.socket = socket;
 		this.extractor = extractor;
 		this.parser = parser;
+	}
+	
+	public EndPoint(Socket socket, IPackageExtractor extractor, IParser<T> parser) {
+		
+		this(extractor, parser);
+		
+		setSocket(socket);
 	}
 	
 	public void send(T message, InetSocketAddress to) {
@@ -48,6 +54,33 @@ public class EndPoint <T> {
 		listeners.remove(listener);
 	}
 	
+	public void setSocket(Socket socket) {
+		
+		if(this.socket != null) {
+		
+			disconnect();
+		}
+		
+		this.socket = socket;
+		
+		fireConnected();
+	}
+	
+	public void disconnect() {
+		
+		try {
+			
+			this.socket.close();
+			
+		} catch (IOException e) {
+			
+			//nothing to do
+		}
+		
+		this.socket = null;
+		
+		fireDisconnected();
+	}
 
 	boolean read() {
 		
@@ -70,7 +103,7 @@ public class EndPoint <T> {
 
 		} catch (IOException e) {
 
-			e.printStackTrace();
+			disconnect();
 		}
 		
 		return result;
@@ -93,17 +126,14 @@ public class EndPoint <T> {
 				outputStream.write(data);
 				outputStream.flush();
 				
-				for(IEndPointListener<T> listener : listeners) {
-					
-					listener.messageSent(envelope.getMessage(), envelope.getAddress());
-				}
+				fireSent(envelope.getMessage(), envelope.getAddress());
 				
 				result = true;
 			}
 			
 		} catch (IOException e) {
 			
-			e.printStackTrace();
+			disconnect();
 		}
 		
 		return result;
@@ -116,11 +146,39 @@ public class EndPoint <T> {
 		Envelope<T> envelope = inbox.poll();
 		T message = envelope.getMessage();
 
+		fireReceived(message, envelope.getAddress());
+		return result;
+	}
+	
+	private void fireConnected() {
+		
 		for(IEndPointListener<T> listener : listeners) {
 			
-			listener.messageReceived(message, envelope.getAddress());
+			listener.connected(this);
 		}
+	}
+	
+	private void fireDisconnected() {
 		
-		return result;
+		for(IEndPointListener<T> listener : listeners) {
+			
+			listener.disconnected(this);
+		}
+	}
+	
+	private void fireReceived(T message, InetSocketAddress from) {
+		
+		for(IEndPointListener<T> listener : listeners) {
+			
+			listener.received(this, message, from);
+		}
+	}
+	
+	private void fireSent(T message, InetSocketAddress from) {
+		
+		for(IEndPointListener<T> listener : listeners) {
+			
+			listener.received(this, message, from);
+		}
 	}
 }
