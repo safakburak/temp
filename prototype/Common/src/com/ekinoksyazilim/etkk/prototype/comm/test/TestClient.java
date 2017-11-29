@@ -6,7 +6,7 @@ import com.ekinoksyazilim.etkk.prototype.comm.tcp.TcpCommClient;
 public class TestClient extends TcpCommClient<Object> {
 
 	@Override
-	protected IMessageCodec<Object> getExtractor() {
+	protected IMessageCodec<Object> getCodec() {
 		
 		return new TestCodec();
 	}

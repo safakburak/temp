@@ -1,5 +1,6 @@
 package com.ekinoksyazilim.etkk.prototype.comm.test;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -27,6 +28,23 @@ public class TestCodec implements IMessageCodec<Object> {
 		return null;
 	}
 
+	@Override
+	public Object decode(byte[] data) {
+		
+		try {
+			
+			ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data, 0, data.length));
+			
+			return ois.readObject();
+			
+		} catch (IOException | ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	@Override
 	public void encode(OutputStream outputStream, Object message) {
 
