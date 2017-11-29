@@ -1,6 +1,6 @@
-package com.ekinoksyazilim.etkk.prototype.comm.test;
+package com.ekinoksyazilim.etkk.prototype.comm.tcp.test;
 
-import com.ekinoksyazilim.etkk.prototype.comm.common.IMessageCodec;
+import com.ekinoksyazilim.etkk.prototype.comm.common.ICodecForStream;
 import com.ekinoksyazilim.etkk.prototype.comm.tcp.TcpServer;
 
 public class TestServer extends TcpServer<Object> {
@@ -11,7 +11,7 @@ public class TestServer extends TcpServer<Object> {
 	}
 
 	@Override
-	protected IMessageCodec<Object> getCodec() {
+	protected ICodecForStream<Object> getCodec() {
 		
 		return new TestCodec();
 	}

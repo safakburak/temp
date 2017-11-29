@@ -1,4 +1,4 @@
-package com.ekinoksyazilim.etkk.prototype.comm.test;
+package com.ekinoksyazilim.etkk.prototype.comm.tcp.test;
 
 public class Main {
 
