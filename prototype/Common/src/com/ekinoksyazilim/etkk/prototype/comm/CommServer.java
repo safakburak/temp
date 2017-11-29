@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentSkipListSet;
+
+import com.ekinoksyazilim.etkk.prototype.comm.callback.IEndPointCreationCallback;
 
 public abstract class CommServer <T> {
 
-	private ConcurrentSkipListSet<IClientListener<T>> listeners = new ConcurrentSkipListSet<>();
+	private ConcurrentHashMap<IServerListener<T>, Boolean> listeners = new ConcurrentHashMap<>();
 	
 	private ConcurrentHashMap<RemoteEndPointKey, EndPoint<T>> endPointMap = new ConcurrentHashMap<>();
 	
@@ -24,6 +26,8 @@ public abstract class CommServer <T> {
 	private boolean isClosing = false;
 	private boolean isRunning = false;
 	
+	private Thread acceptingThread;
+	
 	public CommServer(int port) {
 		
 		this(port, 1);
@@ -37,18 +41,38 @@ public abstract class CommServer <T> {
 		
 		for(int i = 0; i < workers.length; i++) {
 		
-			workers[i] = new Worker();
+			Worker worker = new Worker();
+			worker.start();
+			workers[i] = worker;
 		}
-	}
-	
-	public void addListener(IClientListener<T> listener) {
 		
-		listeners.add(listener);
+		acceptingThread = new Thread(this::accept);
 	}
 	
-	public void removeListener(IClientListener<T> listener) {
+	public void addListener(IServerListener<T> listener) {
+		
+		listeners.putIfAbsent(listener, true);
+	}
+	
+	public void removeListener(IServerListener<T> listener) {
 		
 		listeners.remove(listener);
+	}
+	
+	public IServerListener<T> onCreateEndPoint(IEndPointCreationCallback<T> callback) {
+	
+		IServerListener<T> result = new IServerListener<T>() {
+
+			@Override
+			public void endPointCreated(EndPoint<T> endPoint) {
+				
+				callback.callback(endPoint);
+			}
+		};
+		
+		addListener(result);
+		
+		return result;
 	}
 	
 	public void start() {
@@ -65,7 +89,7 @@ public abstract class CommServer <T> {
 			}
 			
 			isRunning = true;
-			accept();
+			acceptingThread.start();
 		}
 	}
 	
@@ -73,10 +97,20 @@ public abstract class CommServer <T> {
 		
 		isClosing = true;
 		isRunning = false;
+		
+		try {
+			
+			acceptingThread.join();
+			
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+			
+			//nothing to do
+		}
 	}
 	
-	protected abstract IParser<T> getParser();
-	protected abstract IPackageExtractor getExtractor(); 
+	protected abstract IMessageCodec<T> getExtractor(); 
 	
 	private void accept() {
 		
@@ -84,34 +118,47 @@ public abstract class CommServer <T> {
 			
 			try {
 				
-				Socket socket = serverSocket.accept();
-				
-				InetSocketAddress from = (InetSocketAddress) socket.getRemoteSocketAddress();
-				RemoteEndPointKey key = new RemoteEndPointKey(from.getHostName(), from.getPort());
-
-				EndPoint<T> endPoint;
-				
-				if(endPointMap.contains(key)) {
-
-					endPoint = endPointMap.get(key);
-					endPoint.setSocket(socket);
+				if(serverSocket == null) {
+					
+					Thread.sleep(10);
 					
 				} else {
 					
-					endPoint = new EndPoint<>(socket, getExtractor(), getParser());
+					serverSocket.setSoTimeout(1000);
+					Socket socket = serverSocket.accept();
 					
-					endPointMap.put(key, endPoint);
+					InetSocketAddress from = (InetSocketAddress) socket.getRemoteSocketAddress();
+					RemoteEndPointKey key = new RemoteEndPointKey(from.getHostName(), from.getPort());
 					
-					workers[nextWorker].assign(endPoint);
-					nextWorker = (nextWorker + 1) % workers.length;
+					EndPoint<T> endPoint;
 					
-					fireEndPointCreated(endPoint);
+					if(endPointMap.contains(key)) {
+						
+						endPoint = endPointMap.get(key);
+						endPoint.setSocket(socket);
+						
+					} else {
+						
+						endPoint = new EndPoint<>(socket, getExtractor());
+						
+						endPointMap.put(key, endPoint);
+						
+						workers[nextWorker].assign(endPoint);
+						nextWorker = (nextWorker + 1) % workers.length;
+						
+						fireEndPointCreated(endPoint);
+					}
 				}
 				
-			} catch (IOException e) {
+			} catch(SocketTimeoutException e) {
+				
+				//nothing to do
+				
+			} catch (IOException | InterruptedException e) {
 				
 				e.printStackTrace();
-			}
+				
+			} 
 		}
 
 		isClosing = false;
@@ -119,7 +166,7 @@ public abstract class CommServer <T> {
 	
 	private void fireEndPointCreated(EndPoint<T> endPoint) {
 		
-		for(IClientListener<T> listener : listeners) {
+		for(IServerListener<T> listener : listeners.keySet()) {
 			
 			listener.endPointCreated(endPoint);
 		}

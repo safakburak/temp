@@ -1,6 +1,6 @@
 package com.ekinoksyazilim.etkk.prototype.comm;
 
-import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.ekinoksyazilim.etkk.prototype.tools.SilentSleeper;
 
@@ -12,7 +12,7 @@ public class Worker {
 	private Thread writeThread;
 	private Thread dispathThread;
 
-	private ConcurrentSkipListSet<EndPoint<?>> endPoints = new ConcurrentSkipListSet<>();
+	private ConcurrentHashMap<EndPoint<?>, Boolean> endPoints = new ConcurrentHashMap<>();
 
 	public Worker() {
 
@@ -37,7 +37,7 @@ public class Worker {
 
 	public void assign(EndPoint<?> endPoint) {
 
-		endPoints.add(endPoint);
+		endPoints.putIfAbsent(endPoint, true);
 	}
 
 	public void unassign(EndPoint<?> endPoint) {
@@ -51,7 +51,7 @@ public class Worker {
 
 			boolean somethingHappened = false;
 
-			for (EndPoint<?> endPoint : endPoints) {
+			for (EndPoint<?> endPoint : endPoints.keySet()) {
 
 				somethingHappened &= endPoint.read();
 			}
@@ -66,7 +66,7 @@ public class Worker {
 
 			boolean somethingHappened = false;
 
-			for (EndPoint<?> endPoint : endPoints) {
+			for (EndPoint<?> endPoint : endPoints.keySet()) {
 
 				somethingHappened &= endPoint.write();
 			}
@@ -81,7 +81,7 @@ public class Worker {
 
 			boolean somethingHappened = false;
 
-			for (EndPoint<?> endPoint : endPoints) {
+			for (EndPoint<?> endPoint : endPoints.keySet()) {
 
 				somethingHappened &= endPoint.dispatch();
 			}

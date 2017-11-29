@@ -4,11 +4,19 @@ import java.net.InetSocketAddress;
 
 public interface IEndPointListener <T> {
 
-	void received(EndPoint<T> endPoint, T message, InetSocketAddress from);
+	default void received(EndPoint<T> endPoint, T message, InetSocketAddress from) {
+		
+	}
 	
-	void sent(EndPoint<T> endPoint, T message, InetSocketAddress to);
+	default void sent(EndPoint<T> endPoint, T message, InetSocketAddress to) {
+		
+	}
 	
-	void connected(EndPoint<T> endPoint);
+	default void connected(EndPoint<T> endPoint) {
+		
+	}
 	
-	void disconnected(EndPoint<T> endPoint);
+	default void disconnected(EndPoint<T> endPoint) {
+		
+	}
 }
