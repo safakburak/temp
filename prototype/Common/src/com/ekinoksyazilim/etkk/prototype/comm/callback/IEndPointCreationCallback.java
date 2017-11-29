@@ -1,6 +1,6 @@
 package com.ekinoksyazilim.etkk.prototype.comm.callback;
 
-import com.ekinoksyazilim.etkk.prototype.comm.EndPoint;
+import com.ekinoksyazilim.etkk.prototype.comm.common.EndPoint;
 
 @FunctionalInterface
 public interface IEndPointCreationCallback<T> {

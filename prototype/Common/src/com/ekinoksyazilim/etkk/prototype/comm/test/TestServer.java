@@ -1,9 +1,9 @@
 package com.ekinoksyazilim.etkk.prototype.comm.test;
 
-import com.ekinoksyazilim.etkk.prototype.comm.CommServer;
-import com.ekinoksyazilim.etkk.prototype.comm.IMessageCodec;
+import com.ekinoksyazilim.etkk.prototype.comm.common.IMessageCodec;
+import com.ekinoksyazilim.etkk.prototype.comm.tcp.TcpServer;
 
-public class TestServer extends CommServer<Object> {
+public class TestServer extends TcpServer<Object> {
 
 	public TestServer(int port, int numberOfWorkers) {
 		
@@ -11,7 +11,7 @@ public class TestServer extends CommServer<Object> {
 	}
 
 	@Override
-	protected IMessageCodec<Object> getExtractor() {
+	protected IMessageCodec<Object> getCodec() {
 		
 		return new TestCodec();
 	}

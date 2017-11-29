@@ -6,7 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 
-import com.ekinoksyazilim.etkk.prototype.comm.IMessageCodec;
+import com.ekinoksyazilim.etkk.prototype.comm.common.IMessageCodec;
 
 public class TestCodec implements IMessageCodec<Object> {
 
